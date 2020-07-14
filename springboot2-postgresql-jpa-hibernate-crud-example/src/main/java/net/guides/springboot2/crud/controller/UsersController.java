@@ -53,7 +53,7 @@ public class UsersController {
 		return UserRepository.save(User);
 	}
 
-	/* @PutMapping("/users/{id}")
+	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long UserId,
 			@Valid @RequestBody User UserDetails) throws ResourceNotFoundException {
 		User User = UserRepository.findById(UserId)
@@ -64,7 +64,7 @@ public class UsersController {
 		User.setFirstName(UserDetails.getFirstName());
 		final User updatedUser = UserRepository.save(User);
 		return ResponseEntity.ok(updatedUser);
-	} */
+	}
 
 	@DeleteMapping("/users/{id}")
 	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long UserId)
