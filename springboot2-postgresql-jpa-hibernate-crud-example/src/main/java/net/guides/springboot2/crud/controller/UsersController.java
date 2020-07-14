@@ -64,7 +64,7 @@ public class UsersController {
 		User.setFirstName(UserDetails.getFirstName());
 		final User updatedUser = UserRepository.save(User);
 		return ResponseEntity.ok(updatedUser);
-	}
+	} */
 
 	@DeleteMapping("/users/{id}")
 	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long UserId)
@@ -76,5 +76,5 @@ public class UsersController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
-	} */
+	}
 }
