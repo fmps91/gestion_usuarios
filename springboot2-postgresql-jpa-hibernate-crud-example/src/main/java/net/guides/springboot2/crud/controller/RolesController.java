@@ -46,18 +46,18 @@ public class RolesController {
 		return RolRepository.save(Rol);
 	}
 
-	/* @PutMapping("/roles/{id}")
+	@PutMapping("/roles/{id}")
 	public ResponseEntity<Rol> updateRol(@PathVariable(value = "id") Long RolId,
 			@Valid @RequestBody Rol RolDetails) throws ResourceNotFoundException {
 		Rol Rol = RolRepository.findById(RolId)
 				.orElseThrow(() -> new ResourceNotFoundException("Rol not found for this id :: " + RolId));
 
 		Rol.setnombre(RolDetails.getnombre());
-		//Rol.setId_Usuario(RolDetails.getId_Usuario());
+		Rol.setid_usuario(RolDetails.getid_usuario());
 		
 		final Rol updatedRol = RolRepository.save(Rol);
 		return ResponseEntity.ok(updatedRol);
-	} */
+	}
 
 	@DeleteMapping("/roles/{id}")
 	public Map<String, Boolean> deleteRol(@PathVariable(value = "id") Long RolId)
