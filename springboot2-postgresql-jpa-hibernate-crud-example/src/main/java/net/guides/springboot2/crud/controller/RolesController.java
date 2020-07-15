@@ -57,7 +57,7 @@ public class RolesController {
 		
 		final Rol updatedRol = RolRepository.save(Rol);
 		return ResponseEntity.ok(updatedRol);
-	}
+	} */
 
 	@DeleteMapping("/roles/{id}")
 	public Map<String, Boolean> deleteRol(@PathVariable(value = "id") Long RolId)
@@ -69,7 +69,7 @@ public class RolesController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
-	} */
+	}
 }
 
 
