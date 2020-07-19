@@ -1,4 +1,4 @@
-/* package net.guides.springboot2.crud.controller;
+package net.guides.springboot2.crud.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +27,7 @@ public class RolesController {
 	@Autowired
 	private RolRepository RolRepository;
 
-	@GetMapping("/roles")
+	/* @GetMapping("/roles")
 	public List<Rol> getAllRoles() {
 		
 		return RolRepository.findAll();
@@ -39,7 +39,7 @@ public class RolesController {
 		Rol Rol = RolRepository.findById(RolId)
 				.orElseThrow(() -> new ResourceNotFoundException("Rol not found for this id :: " + RolId));
 		return ResponseEntity.ok().body(Rol);
-	}
+	} */
 
 	@PostMapping("/roles")
 	public Rol createRol(@Valid @RequestBody Rol Rol) {
@@ -53,7 +53,7 @@ public class RolesController {
 				.orElseThrow(() -> new ResourceNotFoundException("Rol not found for this id :: " + RolId));
 
 		Rol.setnombre(RolDetails.getnombre());
-		//Rol.setId_Usuario(RolDetails.getId_Usuario());
+		Rol.setid_usuario(RolDetails.getid_usuario());
 		
 		final Rol updatedRol = RolRepository.save(Rol);
 		return ResponseEntity.ok(updatedRol);
@@ -73,4 +73,3 @@ public class RolesController {
 }
 
 
- */

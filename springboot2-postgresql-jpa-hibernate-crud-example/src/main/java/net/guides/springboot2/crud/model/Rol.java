@@ -1,4 +1,4 @@
-/* package net.guides.springboot2.crud.model;
+package net.guides.springboot2.crud.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -76,4 +76,3 @@ public class Rol {
 
 	
 }
- */

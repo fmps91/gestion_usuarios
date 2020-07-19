@@ -1,4 +1,4 @@
-/* package net.guides.springboot2.crud.repository;
+package net.guides.springboot2.crud.repository;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
@@ -15,4 +15,3 @@ public interface RolRepository extends JpaRepository<Rol, Long>{
     
     
 }
- */

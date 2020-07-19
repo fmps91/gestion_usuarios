@@ -28,17 +28,17 @@ public class UsersController {
 	@Autowired
 	private UserRepository UserRepository;
 
-	/* @GetMapping("/users")
+	@GetMapping("/users")
 	public List<User> getAllUsers() {
 		
 		return UserRepository.findAll();
 	}
 
-	@GetMapping("/users/rl")
+	/* @GetMapping("/users/rl")
 	public List<User> getAllUsersRL() {
 		
 		return UserRepository.transactions((long) 2);
-	}
+	} */
 
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long UserId)
@@ -46,14 +46,14 @@ public class UsersController {
 		User User = UserRepository.findById(UserId)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + UserId));
 		return ResponseEntity.ok().body(User);
-	} */
+	}
 
 	@PostMapping("/users")
 	public User createUser(@Valid @RequestBody User User) {
 		return UserRepository.save(User);
 	}
 
-	/* @PutMapping("/users/{id}")
+	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long UserId,
 			@Valid @RequestBody User UserDetails) throws ResourceNotFoundException {
 		User User = UserRepository.findById(UserId)
@@ -76,5 +76,5 @@ public class UsersController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
-	} */
+	}
 }

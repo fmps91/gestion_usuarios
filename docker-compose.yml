@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  database:
+    container_name: database
+    image: postgres:11-alpine
+    ports: 
+       - "8091:5432" 
+    environment: 
+   
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=users
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+    
+    #volumes:
+      #- ./postgres:/var/lib/postgresql/data
+
+    #env_file:
+    #  - database.env # configure postgres
+    #volumes:
+    #  - database-data:/var/lib/postgresql/data/
+  gestion_usuarios:
+    container_name: gestion_usuarios
+    image: openjdk:8-jdk-alpine
+    command: "
+      java -version
+        
+      "
+      #volumes:
+      #  - /postgresql-jpa-hibernate-crud-example/target/springboot2-postgresql-jpa-hibernate-crud-example-0.0.1-SNAPSHOT.jar:/var/www/html
+    restart: always
+    ports: 
+      - "8090:8080"
+
+    

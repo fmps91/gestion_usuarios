@@ -1,4 +1,4 @@
-package net.guides.springboot2.springboot2jpacrudexample;
+/* package net.guides.springboot2.springboot2jpacrudexample;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -96,3 +96,4 @@ public class EmployeeControllerIntegrationTest {
 		}
 	}
 }
+ */
