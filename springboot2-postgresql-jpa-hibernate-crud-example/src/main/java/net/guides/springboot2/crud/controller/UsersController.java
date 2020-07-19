@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.hibernate.annotations.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,11 +35,11 @@ public class UsersController {
 		return UserRepository.findAll();
 	}
 
-	/* @GetMapping("/users/rl")
-	public List<User> getAllUsersRL() {
-		
-		return UserRepository.transactions((long) 2);
-	} */
+	@GetMapping("/userz")
+	public Object getLogin() {
+		//System.out.println(UserRepository.transactions("f@1.com","f"));
+		return UserRepository.transactions("f@1.com","f");
+	}
 
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long UserId)

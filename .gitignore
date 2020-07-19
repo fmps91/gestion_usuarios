@@ -1,6 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-
+ 
 ### STS ###
 .apt_generated
 .classpath
@@ -27,3 +27,10 @@
 #file mac
 .DS_Store
 **/.DS_Store
+
+#file visual code
+*/.vscode/
+
+#generacion de codigo compilacion
+*.jar.original
+*.jar
