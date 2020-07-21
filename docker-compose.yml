@@ -46,6 +46,8 @@ services:
       - POSTGRES_PASSWORD=postgres
     links:
       - database
+    networks:
+      front_some-net
     #depends_on:
     #  - database
       #- back-tier     
@@ -65,7 +67,6 @@ services:
 networks:
   front-tier:
   back-tier:
-  my-net:
-    external:
-      name: custom_network
+  front_some-net:
+    external: true
     
