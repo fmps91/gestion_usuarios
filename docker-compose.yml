@@ -32,8 +32,8 @@ services:
     ports:
       - 8090:8080
     #command: sh -c "dockerize -wait tcp://postgres:8091 -timeout 300s -wait-retry-interval 30s /sayhello"
-    networks:
-      - my-net
+    #networks:
+      #- my-net
     #expose:
     #  - 8090
     restart: always
@@ -65,7 +65,5 @@ services:
 networks:
   front-tier:
   back-tier:
-  my-net:
-    external:
-      name: custom_network
+
     
