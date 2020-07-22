@@ -1,14 +1,18 @@
 
 
+
 CREATE TABLE IF NOT EXISTS public.permiso
 (
     id serial PRIMARY KEY,
     name character varying(100) NOT NULL,
+
     name_rol  character varying(100) NOT NULL 
+
 );
 
 CREATE TABLE IF NOT EXISTS public.rol
 (
+
     id serial ,
     name character varying(100) NOT NULL PRIMARY KEY,
     id_usuario integer NOT NULL
@@ -46,4 +50,9 @@ insert into rol(name,id_usuario) values('paciente',1);
 
 insert into permiso(name,name_rol) values('write','paciente');
 insert into permiso(name,name_rol) values('read','paciente');
+
+insert into rol(name,id_usuario) values('paciente',1);
+
+insert into permiso(name,id_rol) values('write',"paciente");
+
 

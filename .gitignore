@@ -28,9 +28,11 @@
 .DS_Store
 **/.DS_Store
 
+
 #file visual code ddsasss sas assas assas sasaas ddsd fdd
 */.vscode/
 
 #generacion de codigo compilacion
 *.jar.original
 *.jar
+
