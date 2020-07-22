@@ -1,5 +1,6 @@
 package net.guides.springboot2.crud.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -13,7 +14,46 @@ import net.guides.springboot2.crud.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
    
-    @Query(value = "select * from users where users.id = :id ", nativeQuery = true)
-    public List<User> transactions(@Param("id") Long id);
+    
+/* 
+forma 1
+@Query(
+    value = 
+    "SELECT "+
+    " users.id, "+
+    " users.first_name, "+
+    " users.last_name, "+
+    " users.email_address, "+
+    " rol.name "+
+    " FROM "+
+    " users "+
+    " FULL JOIN rol "+
+    " ON rol.id_usuario = users.id  "+
+    " where users.email_address = :email and users.password = :password ", 
+    nativeQuery = true)
+  
+  Object transactions(@Param("email") String email,@Param("password") String password ); */
+
+  //forma 2
+@Query(
+    value = 
+    "SELECT "+
+    " u.id, "+
+    " u.first_name, "+
+    " u.last_name, "+
+    " u.email_address, "+
+    " r.name "+
+    " FROM "+
+    " users as u "+
+    " FULL JOIN rol as r "+
+    " ON r.id_usuario = u.id  "+
+    " where u.email_address = :email and u.password = :password ", 
+    nativeQuery = true)
+  
+  Object transactions(@Param("email") String email,@Param("password") String password );
+
+
+
+
 
 }

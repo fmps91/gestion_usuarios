@@ -1,11 +1,21 @@
 version: "3"
 
 services:
-  database_gu:
-    container_name: database_gu
+
+  database:
+    container_name: database
+    hostname: localhost
     image: postgres:11-alpine
-    ports: 
-       - "8091:5432" 
+    restart: always
+    #expose:
+      #- 8091
+    #ports: 
+      #- 8091:5432 
+    #command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    #args:
+      #a: a_value
+      
+
     environment: 
    
       - POSTGRES_PASSWORD=postgres
@@ -13,6 +23,38 @@ services:
       - POSTGRES_DB=users
       - PGDATA=/var/lib/postgresql/data/pgdata
 
+
+    volumes:
+      #- ./postgres.conf:/etc/postgresql/postgresql.conf
+      - ./gestion_users.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  springbootapp:
+    build: .
+    container_name: gestion_usuarios
+    
+    ports:
+      - 8090:8090
+    #command: sh -c "dockerize -wait tcp://postgres:8091 -timeout 300s -wait-retry-interval 30s /sayhello"
+    #networks:
+      #- my-net
+    #expose:
+      #- 8090
+    restart: always
+    #ports:
+      #- 8090:8080
+    environment:
+      - DB_SERVER=database
+      - POSTGRES_DB=users
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    links:
+      - database
+    depends_on:
+      - database
+      #- back-tier     ff
+    #depends_on:
+    #  - database
+  
     
     #volumes:
       #- ./postgres:/var/lib/postgresql/data
@@ -21,18 +63,12 @@ services:
     #  - database.env # configure postgres
     #volumes:
     #  - database-data:/var/lib/postgresql/data/
-  gestion_usuarios:
-    container_name: gestion_usuarios
-    image: openjdk:8-jdk-alpine
-    command: "
-      java -version && ls
-      "
-      #volumes:
-      #  - /postgresql-jpa-hibernate-crud-example/target/springboot2-postgresql-jpa-hibernate-crud-example-0.0.1-SNAPSHOT.jar:/var/www/html
 
-      #cd springboot2-postgresql-jpa-hibernate-crud-example
-      #cd target
-    ports: 
-      - "8090:8080"
+  
+networks:
+  front-tier:
+  back-tier:
+
+
 
     
