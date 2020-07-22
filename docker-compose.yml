@@ -30,12 +30,12 @@ services:
     container_name: gestion_usuarios
     
     ports:
-      - 8090:8080
+      - 8090:8090
     #command: sh -c "dockerize -wait tcp://postgres:8091 -timeout 300s -wait-retry-interval 30s /sayhello"
     #networks:
       #- my-net
-    #expose:
-    #  - 8090
+    expose:
+      - 8090
     restart: always
     #ports:
       #- 8090:8080
