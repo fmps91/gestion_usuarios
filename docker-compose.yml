@@ -1,29 +1,6 @@
 version: "3"
 
 services:
-  database:
-    container_name: database
-    hostname: localhost
-    image: postgres:11-alpine
-    restart: always
-    expose:
-      - 5555
-    #ports: 
-      #- 5432:5432 
-    #command: postgres -c config_file=/etc/postgresql/postgresql.conf
-    #args:
-      #a: a_value
-      
-    environment: 
-   
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=users
-      - PGDATA=/var/lib/postgresql/data/pgdata
-
-    volumes:
-      #- ./postgres.conf:/etc/postgresql/postgresql.conf
-      - ./gestion_users.sql:/docker-entrypoint-initdb.d/schema.sql
 
   springbootapp:
     build: .
@@ -45,8 +22,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=5432
-    links:
-      - database
+    #links:
+      #- database
     #depends_on:
       #- database
    
