@@ -35,10 +35,10 @@ public class UsersController {
 		return UserRepository.findAll();
 	}
 
-	@GetMapping("/userz")
-	public Object getLogin() {
+	@GetMapping("/login")
+	public Object getLogin(@PathVariable(value = "email") String email,@PathVariable(value = "password") String password) {
 		//System.out.println(UserRepository.transactions("f@1.com","f"));
-		return UserRepository.transactions("f@1.com","f");
+		return UserRepository.transactions(email,password);
 	}
 
 	@GetMapping("/users/{id}")

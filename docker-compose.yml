@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+  
 
   springbootapp:
     build: .
@@ -40,7 +41,29 @@ services:
     #  - database.env # configure postgres
     #volumes:
     #  - database-data:/var/lib/postgresql/data/
+    #database:
+      #container_name: database
+      #hostname: localhost
+      #image: postgres:11-alpine
+      #restart: always
+      #expose:
+        #- 5555
+      #ports: 
+        #- 5432:5432 
+      #command: postgres -c config_file=/etc/postgresql/postgresql.conf
+      #args:
+        #a: a_value
+        
+      #environment: 
+     
+        #- POSTGRES_PASSWORD=postgres
+        #- POSTGRES_USER=postgres
+        #- POSTGRES_DB=users
+        #- PGDATA=/var/lib/postgresql/data/pgdata
   
+      #volumes:
+        #- ./postgres.conf:/etc/postgresql/postgresql.conf
+        #- ./gestion_users.sql:/docker-entrypoint-initdb.d/schema.sql
 networks:
   front-tier:
   back-tier:
