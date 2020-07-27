@@ -38,12 +38,14 @@ FOREIGN KEY (name_rol)
 REFERENCES rol(name)
 ON DELETE CASCADE;
 
-insert into users(first_name,last_name, email_address,password) values ( 'nombre','post','f@1.com','f');
+insert into users(first_name,last_name, email_address,password) values ( 'admin','admin','admin@sgd.com','admin');
 insert into users(first_name,last_name, email_address,password) values ( 'nombre3','post2','f@2.com','f2');
 
 
-insert into rol(name,id_usuario) values('paciente',1);
+insert into rol(name,id_usuario) values('admin',1);
 
-insert into permiso(name,name_rol) values('write','paciente');
-insert into permiso(name,name_rol) values('read','paciente');
+insert into permiso(name,name_rol) values('write','admin');
+insert into permiso(name,name_rol) values('read','admin');
+insert into permiso(name,name_rol) values('update','admin');
+insert into permiso(name,name_rol) values('delete','admin');
 
