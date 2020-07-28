@@ -8,6 +8,7 @@
 FROM openjdk:8-alpine
 COPY /springboot2-postgresql-jpa-hibernate-crud-example/target/*.jar app.jar
 #EXPOSE 8090
+#ccanbio en repo
 
 ENTRYPOINT ["java","-jar","app.jar"]
 #HEALTHCHECK --interval=1s --timeout=9s CMD curl -f http://localhost/ || false.
