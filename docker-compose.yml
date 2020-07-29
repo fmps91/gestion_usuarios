@@ -5,8 +5,10 @@ services:
 
   springbootapp:
     build: .
+    #hostname: localhost
     container_name: gestion_usuarios
-    
+    #expose:
+      #- 8090
     ports:
       - 8090:8090
     #command: sh -c "dockerize -wait tcp://postgres:8091 -timeout 300s -wait-retry-interval 30s /sayhello"
@@ -23,8 +25,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=5432
-    #links:
-      #- database
+    # links:
+    #   - database
     #depends_on:
       #- database
    
@@ -34,37 +36,37 @@ services:
   
 
     
-    #volumes:
-      #- ./postgres:/var/lib/postgresql/data
+    # volumes:
+    #   - ./postgres:/var/lib/postgresql/data
 
-    #env_file:
+    # env_file:
     #  - database.env # configure postgres
-    #volumes:
+    # volumes:
     #  - database-data:/var/lib/postgresql/data/
 
-  #database:
-    #container_name: database
-    #hostname: localhost
-    #image: postgres:11-alpine
-    #restart: always
-    #expose:
-      #- 5555
-    #ports: 
-    #  - 5432:5432 
-    #command: postgres -c config_file=/etc/postgresql/postgresql.conf
-    #args:
-      #a: a_value
+  # database:
+  #   container_name: database
+  #   hostname: localhost
+  #   image: postgres:11-alpine
+  #   restart: always
+  #   expose:
+  #     - 5432
+  #   ports: 
+  #   - 5432:5432 
+  #   command: postgres -c config_file=/etc/postgresql/postgresql.conf
+  #   args:
+  #    a: a_value
       
-    #environment: 
+  #   environment: 
    
-    #  - POSTGRES_PASSWORD=postgres
-    #  - POSTGRES_USER=postgres
-    #  - POSTGRES_DB=users
-    #  - PGDATA=/var/lib/postgresql/data/pgdata
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_DB=users
+  #     - PGDATA=/var/lib/postgresql/data/pgdata
 
-    #volumes:
-      #- ./postgres.conf:/etc/postgresql/postgresql.conf
-    #  - ./gestion_users.sql:/docker-entrypoint-initdb.d/schema.sql 
+  #   volumes:
+  #     - ./postgres.conf:/etc/postgresql/postgresql.conf
+  #     - ./gestion_users.sql:/docker-entrypoint-initdb.d/schema.sql 
 
 
 networks:
