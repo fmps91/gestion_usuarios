@@ -1,4 +1,4 @@
-/* package net.guides.springboot2.crud.model;
+package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -60,4 +60,3 @@ public class Permiso {
 
 	
 }
- */

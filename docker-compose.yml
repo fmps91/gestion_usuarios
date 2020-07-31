@@ -5,7 +5,7 @@ services:
 
   springbootapp:
     build: .
-    #hostname: localhost
+    hostname: localhosts
     container_name: gestion_usuarios
     #expose:
       #- 8090

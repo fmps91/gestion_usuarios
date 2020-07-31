@@ -20,7 +20,8 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+//@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = { "*" })
 @RestController
 
 @RequestMapping("/api/v1")

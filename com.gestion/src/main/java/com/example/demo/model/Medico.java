@@ -17,22 +17,22 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "rol" , schema = "public") 
-public class Rol {
+@Table(name = "medico" , schema = "public") 
+public class Medico {
 
 	private long id;
-	private String nombre;
-	private long id_usuario;
+	private String credencial;
+	private long id_medico;
 
 	
 	
-	public Rol() {
+	public Medico() {
 		
 	}
 	
-	public Rol(String nombre, long id_usuario) {
-		this.nombre = nombre;
-		this.id_usuario=id_usuario;
+	public Medico(String credencial, long id_medico) {
+		this.credencial = credencial;
+		this.id_medico=id_medico;
 	}
 	
 	
@@ -48,20 +48,20 @@ public class Rol {
 		this.id = id;
 	}
 	
-	@Column(name = "name", nullable = false)
-	public String getnombre() {
-		return nombre;
+	@Column(name = "credencial", nullable = false)
+	public String getcredencial() {
+		return credencial;
 	}
-	public void setnombre(String nombre) {
-		this.nombre = nombre;
+	public void setcredencial(String credencial) {
+		this.credencial = credencial;
 	}
 
-	@Column(name = "id_usuario", nullable = false)
-	public Long getid_usuario() {
-		return id_usuario;
+	@Column(name = "id_medico", nullable = false)
+	public Long getid_medico() {
+		return id_medico;
 	}
-	public void setid_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setid_medico(Long id_medico) {
+		this.id_medico = id_medico;
 	}
 
 

@@ -22,7 +22,7 @@ import com.example.demo.repository.RolRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = { "*" })
 public class RolesController {
 	@Autowired
 	private RolRepository RolRepository;
